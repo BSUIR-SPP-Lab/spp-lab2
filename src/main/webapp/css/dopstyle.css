@@ -1,0 +1,26 @@
+.header {
+    background-size:  cover;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #000000;
+    padding: 25px;
+}
+.main{
+    background-color: #FFB500;
+    border-radius: 20px;
+    margin-top:5px;
+    margin-bottom: 5px;
+    color: #000;
+    padding: 20px;
+}
+.footer {
+    background-size:  cover;
+    color: #ffffff;
+    padding: 15px;
+    min-height: 20px;
+}
+
+.table-style{
+    background-color: #fff;
+    color: #000;
+    border-radius: 10px;
+}
