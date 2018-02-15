@@ -69,7 +69,7 @@ public class ConnectionPool {
     private void makeConnection(int poolSize) throws IOException, ClassNotFoundException, SQLException {
         Properties properties = new Properties();
         properties.load(getClass().getClassLoader().getResourceAsStream(KEY_RESOURCE_PATH));
-        connections = new ArrayBlockingQueue<ProxyConnection>(poolSize);
+        connections = new ArrayBlockingQueue<>(poolSize);
         Class.forName(properties.getProperty(KEY_DRIVER_NAME));
         for (int i = 0; i < poolSize; i++) {
             ProxyConnection connection = new ProxyConnection(DriverManager.getConnection(properties.getProperty(KEY_CONNECTION_STRING), properties));

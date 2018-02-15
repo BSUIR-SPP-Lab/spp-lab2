@@ -47,6 +47,7 @@ public class UserDAOImpl implements UserDAO {
         }
         return resultList;
     }
+
     private UserDTO createUser(ResultSet resultSet) throws SQLException {
         Long id = resultSet.getLong(USER_ID);
         String firstName = resultSet.getString(USER_FIRST_NAME);

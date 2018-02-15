@@ -50,10 +50,8 @@ public class ControlServlet extends HttpServlet {
 
 
         if (page != null) {
-            if(request.getAttribute("redirect")!=null) {
-                logger.log(Level.DEBUG, "redirect = " + request.getAttribute("redirect"));
-            }
             if (request.getAttribute("redirect") != null) {
+                logger.log(Level.DEBUG, "redirect = " + request.getAttribute("redirect"));
                 response.sendRedirect(request.getAttribute("redirect").toString());
             } else {
                 RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher(page);

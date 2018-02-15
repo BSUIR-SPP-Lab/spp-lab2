@@ -2,6 +2,9 @@ package com.belykh.lab2.listener;
 
 import com.belykh.lab2.pool.ConnectionPool;
 import com.belykh.lab2.pool.exception.ConnectionPoolException;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -13,14 +16,16 @@ import javax.servlet.annotation.WebListener;
 @WebListener
 public class ConnectionPoolInitializeListener implements ServletContextListener {
 
-    private static final int POOL_SIZE = 1;
+    private static final int POOL_SIZE = 20;
+    private static final Logger LOGGER = LogManager.getLogger(ConnectionPoolInitializeListener.class);
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         try {
             ConnectionPool.init(POOL_SIZE);
         } catch (ConnectionPoolException e) {
-            //todo add log
+            LOGGER.log(Level.FATAL,e);
+            throw new RuntimeException(e);
         }
     }
 
@@ -29,7 +34,8 @@ public class ConnectionPoolInitializeListener implements ServletContextListener 
         try {
             ConnectionPool.getInstance().destroy();
         } catch (ConnectionPoolException e) {
-            //todo Add log
+            LOGGER.log(Level.FATAL,e);
+            throw new RuntimeException(e);
         }
     }
 }

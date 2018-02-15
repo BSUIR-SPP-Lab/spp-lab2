@@ -1,5 +1,7 @@
 package com.belykh.lab2.command;
 
+import com.belykh.lab2.command.impl.EmptyCommand;
+
 import javax.servlet.http.HttpServletRequest;
 
 /**

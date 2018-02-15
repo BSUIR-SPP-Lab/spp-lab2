@@ -1,5 +1,6 @@
-package com.belykh.lab2.command;
+package com.belykh.lab2.command.impl;
 
+import com.belykh.lab2.command.ActionCommand;
 import com.belykh.lab2.manager.ConfigurationManager;
 
 import javax.servlet.http.HttpServletRequest;

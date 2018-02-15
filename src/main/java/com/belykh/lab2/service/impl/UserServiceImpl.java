@@ -10,6 +10,7 @@ import com.belykh.lab2.service.UserService;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
+
     @Override
     public List<UserDTO> findAllUsers() throws ServiceException {
         UserDAO dao = DAOFactory.getInstance().getUserDAO();
